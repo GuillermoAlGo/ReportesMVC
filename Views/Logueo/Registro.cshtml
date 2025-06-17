@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ReportesMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    </head>
+    <body>
+   <div class="container h-100">
+       <div class="d-flex justify-content-center h-100">
+           <div class="card">
+                <div class="d-flex justify-content-center form_container">
+                    <form action="@Url.Action("Registro","Logueo")" method="post">
+                        <div class="card-header justify-content-center">
+                            <h3>Registrar usuario</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" name="Username" class="form-control input-user" value="" placeholder="username" />
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    <input type="password" name="Password" class="form-control input-user" value="" placeholder="password" />
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    <input type="password" name="ConfirmaPassword" class="form-control input-user" value="" placeholder="Confirmar password" />
+                                </div>
+                            </div>
+                            @if(ViewData["Mensaje"] != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewData["Mensaje"]
+                                </div>
+                            }
+                            </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center mt-3">
+                                <button type="submit" name="button" class="btn btn-outline-primary">Registrarse</button>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center links">
+                                    Ya tienes una cuenta? <a href="@Url.Action("Login", "Logueo")" class="ml-2">Inciar Sesion</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form> 
+                   
+               </div>
+           </div>
+       </div>
+   </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    </body>
+    </html>

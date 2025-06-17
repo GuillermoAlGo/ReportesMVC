@@ -15,9 +15,12 @@ namespace ReportesMVC.Controllers
 
 		public IActionResult Index()
 		{
+			return RedirectToAction("Login", "Logueo");
+		}
+		public IActionResult main()
+		{
 			return View();
 		}
-
 		public IActionResult Privacy()
 		{
 			return View();

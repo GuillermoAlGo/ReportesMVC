@@ -1,5 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
-
+string connectionString = builder.Configuration.GetConnectionString("LocalConnection");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -18,6 +18,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Logueo}/{action=Login}/{id?}");
 
 app.Run();

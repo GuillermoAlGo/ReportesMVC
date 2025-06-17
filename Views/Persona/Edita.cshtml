@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Persona
+<div class="container d-flex justify-content-center form-container">
+    @* <div class="form-group col-6 row border"> *@
+        <form asp-action="GuardarDatos" asp-controller="Persona" method="post" class="container col-7 justify-content-around">
+            <div class="mb-3">
+               <h4>Editar Persona</h4>
+            </div>
+            <div class="mb-3 row">
+            <label for="NOMBRE" class="form-label col-4">Nombre</label>
+            <input asp-for="IIDPERSONA" hidden="hidden" class="col-8" />
+            <input asp-for="NOMBRE" class="col-8" />
+             </div>
+        <div class="mb-3 row">
+            <label for="APPATERNO" class="form-label col-4">Apellido Paterno</label>
+            <input asp-for="APPATERNO" class="col-8" />
+            </div>
+        <div class="mb-3 row">
+            <label for="APMATERNO" class="form-label col-4">Apellido Materno</label>
+            <input asp-for="APMATERNO" class="col-8" />
+            </div>
+        <div class="mb-3 row">
+            <label for="IIDSEXO" class="form-label col-4">Sexo</label>
+            <select asp-for="IIDSEXO" class="col-8" >
+                <option value="1">Hombre</option>
+                <option value="2">Mujer</option>
+            </select>
+            </div>
+        <div class="mb-3 row">
+            <label for="CORREO" class="form-label col-4">Correo</label>
+            <input asp-for="CORREO" class="col-8" />
+            </div>
+        <div class="mb-3 row">
+            <label for="TELEFONOCELULAR1" class="form-label col-4">Teléfono Celular</label>
+            <input asp-for="TELEFONOCELULAR1" class="col-8" />
+            </div>
+        <div class="mb-3 row">
+            <label for="IIDTIPODOCUMENTO" class="form-label col-4">Tipo Documento</label>
+            <select asp-for="IIDTIPODOCUMENTO" class="col-8" >
+                @foreach(TipoDocumentacion tipo in Model.tipoDocumentacions)
+                {
+                    <option value="@tipo.IIDTIPODOCUMENTO">@tipo.NOMBRE</option>
+                }
+            </select>
+            </div>
+        <div class="mb-3 row">
+            <label for="NUMEROIDENTIFICACION" class="form-label col-4">Número identificación</label>
+            <input asp-for="NUMEROIDENTIFICACION" class="col-8" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+   @*  </div> *@
+</div>
